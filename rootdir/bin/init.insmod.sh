@@ -27,7 +27,7 @@ if [ -f $cfg_file ]; then
           "*" | "")
             arg="$(cat /vendor/lib/modules/modules.load)" ;;
         esac
-        modprobe -a -d /vendor/lib/modules $arg ;;
+        modprobe -a -d /vendor/lib/modules/ $arg ;;
     esac
   done < $cfg_file
 fi
