@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/tecno/KG5j
-VENDOR_PATH := vendor/tecno/KG5j
+DEVICE_PATH := device/tecno/kelly
+VENDOR_PATH := vendor/tecno/kelly
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
@@ -15,7 +15,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
@@ -27,18 +27,18 @@ TARGET_USES_64_BIT_BINDER := true
 OVERRIDE_TARGET_FLATTEN_APEX := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := KG5j
+TARGET_BOOTLOADER_BOARD_NAME := kelly
 TARGET_NO_BOOTLOADER := true
 
 # Display
 TARGET_SCREEN_DENSITY := 320
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := kelly,KG5j,TECNO-KG5j,TECNO KG5j
+TARGET_OTA_ASSERT_DEVICE := kelly,kelly,TECNO-kelly
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_tecno_KG5j
-TARGET_RECOVERY_DEVICE_MODULES ?= init_tecno_KG5j
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_kelly
+TARGET_RECOVERY_DEVICE_MODULES ?= init_kelly
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -54,8 +54,8 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := KG5j_defconfig
-TARGET_KERNEL_SOURCE := kernel/tecno/KG5j
+TARGET_KERNEL_CONFIG := kelly_defconfig
+TARGET_KERNEL_SOURCE := kernel/tecno/kelly
 
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -83,9 +83,6 @@ TARGET_USERIMAGES_SPARSE_F2FS_DISABLED := true
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
-# TARGET_COPY_OUT_VBMETA_VENDOR := vbmeta_vendor
-# TARGET_COPY_OUT_VBMETA_SYSTEM := vbmeta_system
-
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -113,9 +110,6 @@ TARGET_BOARD_PLATFORM := mt6761
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_VENDOR =: tecno
 
-# Power
-TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
-
 # Sepolicy
 TARGET_USES_PREBUILT_VENDOR_SEPOLICY := true
 TARGET_HAS_FUSEBLK_SEPOLICY_ON_VENDOR := true
@@ -129,9 +123,6 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
-TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6761
@@ -143,10 +134,10 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Use prebuilt vendor
 BUILD_WITHOUT_VENDOR := true
-BOARD_PREBUILT_VENDORIMAGE := vendor/tecno/KG5j/vendor.img
+BOARD_PREBUILT_VENDORIMAGE := vendor/tecno/kelly/vendor.img
 
 # Verified Boot
-BOARD_AVB_ENABLE := true
+BOARD_AVB_ENABLE := false
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
@@ -168,10 +159,5 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 # VNDK
 BOARD_VNDK_VERSION := current
 
-# VINTF
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-#DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-#DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := 
-
 # Inherit the proprietary files
-include vendor/tecno/KG5j/BoardConfigVendor.mk
+include vendor/tecno/kelly/BoardConfigVendor.mk

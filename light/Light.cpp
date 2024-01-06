@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.kg5j"
+#define LOG_TAG "android.hardware.light@2.0-service.kelly"
 
 #include <log/log.h>
 
@@ -23,7 +23,7 @@
 #include <fstream>
 
 #define LCD_LED         "/sys/class/leds/lcd-backlight/"
-#define NOTIFICATION_LED       "/sys/class/leds/white/"
+#define NOTIFICATION_LED       "/sys/class/leds/blue/"
 
 #define BREATH_MODE     "breath_mode"
 #define BRIGHTNESS      "brightness"
@@ -31,8 +31,8 @@
 #define PWM_MODE        "pwm_mode"
 #define TRIGGER         "trigger"
 
-#define MAX_LED_BRIGHTNESS    13
-#define MAX_LCD_BRIGHTNESS    2047
+#define MAX_LED_BRIGHTNESS    225
+#define MAX_LCD_BRIGHTNESS    4095
 
 namespace {
 /*
