@@ -77,6 +77,10 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService \
     ImsServiceBase
+
+# Init
+PRODUCT_PACKAGES += \
+    init.mt6761.rc
     
 # Engineer Mode
 #$(call inherit-product, vendor/mediatek/ims/mtk-engi.mk)

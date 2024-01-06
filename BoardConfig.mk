@@ -15,7 +15,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
@@ -34,11 +34,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_SCREEN_DENSITY := 320
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := kelly,KG5j,TECNO-KG5j,TECNO KG5j
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_tecno_KG5j
-TARGET_RECOVERY_DEVICE_MODULES ?= init_tecno_KG5j
+TARGET_OTA_ASSERT_DEVICE := kelly,KG5j,TECNO-KG5j
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -146,7 +142,7 @@ BUILD_WITHOUT_VENDOR := true
 BOARD_PREBUILT_VENDORIMAGE := vendor/tecno/KG5j/vendor.img
 
 # Verified Boot
-BOARD_AVB_ENABLE := true
+BOARD_AVB_ENABLE := false
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
@@ -170,8 +166,8 @@ BOARD_VNDK_VERSION := current
 
 # VINTF
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-#DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-#DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := 
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framwork_compatibility_matrix.xml
 
 # Inherit the proprietary files
 include vendor/tecno/KG5j/BoardConfigVendor.mk
