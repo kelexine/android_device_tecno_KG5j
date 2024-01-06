@@ -1,3 +1,4 @@
+#!/bin/bash
 # Remove Existing Repos
 rm -rf hardware/mediatek
 rm -rf device/mediatek/sepolicy_vndr
